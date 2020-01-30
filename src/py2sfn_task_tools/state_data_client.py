@@ -10,8 +10,10 @@ from botocore.exceptions import ClientError
 
 from .exceptions import NoItemFound
 
-dynamodb = boto3.client("dynamodb")
-s3 = boto3.client("s3")
+dynamodb = boto3.client(
+    "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT_URL")
+)
+s3 = boto3.client("s3", endpoint_url=os.environ.get("S3_ENDPOINT_URL"))
 
 #: If an item's data is larger than this threshold it will be stored in S3 instead of
 #: DynamoDB. The item limit is 400KB but we'll leave room for other attributes.
@@ -42,6 +44,7 @@ class StateDataClient:
     tasks to use to store data remotely instead of passing it directly to downstream
     states in the state machine input data object. This is handy when the state data is
     larger than 32K characters (the AWS limit).
+
     """
 
     def __init__(
@@ -74,7 +77,9 @@ class StateDataClient:
         self.default_table_name = default_table_name
         self.namespace = namespace
         self.ttl_days = ttl_days
-        self.s3_bucket = boto3.resource("s3").Bucket(s3_bucket)
+        self.s3_bucket = boto3.resource(
+            "s3", endpoint_url=os.environ.get("S3_ENDPOINT_URL")
+        ).Bucket(s3_bucket)
 
     def table(self, table_name: str) -> "dynamodb.Table":
         """Helper method to create a DynamoDB table object.
@@ -86,7 +91,9 @@ class StateDataClient:
             DynamoDB table object
 
         """
-        return boto3.resource("dynamodb").Table(table_name)
+        return boto3.resource(
+            "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT_URL")
+        ).Table(table_name)
 
     def _load_item_data(self, item: Dict) -> Any:
         """Load item data for a given item metadata dict.
