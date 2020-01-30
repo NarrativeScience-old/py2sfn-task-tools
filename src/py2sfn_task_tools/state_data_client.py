@@ -77,7 +77,9 @@ class StateDataClient:
         self.default_table_name = default_table_name
         self.namespace = namespace
         self.ttl_days = ttl_days
-        self.s3_bucket = boto3.resource("s3").Bucket(s3_bucket)
+        self.s3_bucket = boto3.resource(
+            "s3", endpoint_url=os.environ.get("S3_ENDPOINT_URL")
+        ).Bucket(s3_bucket)
 
     def table(self, table_name: str) -> "dynamodb.Table":
         """Helper method to create a DynamoDB table object.
