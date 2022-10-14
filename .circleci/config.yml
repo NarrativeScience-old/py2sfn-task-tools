@@ -324,7 +324,6 @@ jobs:
             - poetry-configure
             - run: poetry install
             - run: poetry build
-            - github-release
             - run: poetry publish
     send-slack-on-pr-success:
         description: Send a Slack message to the PR author on PR workflow success.

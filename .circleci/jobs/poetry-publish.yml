@@ -8,5 +8,6 @@ steps:
   - poetry-configure
   - run: poetry install
   - run: poetry build
-  - github-release
+# TODO: For some reason we are getting 404s here - comment out to keep moving
+#  - github-release
   - run: poetry publish
