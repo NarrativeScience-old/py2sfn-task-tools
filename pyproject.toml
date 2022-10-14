@@ -1,28 +1,71 @@
-[build-system]
-requires = ["flit_core >=2,<3"]
-build-backend = "flit_core.buildapi"
-
-[tool.flit.metadata]
-module = "py2sfn_task_tools"
-author = "Jonathan Drake"
-author-email = "jdrake@narrativescience.com"
-home-page = "https://github.com/NarrativeScience/py2sfn-task-tools"
+[tool.poetry]
+name = "py2sfn_task_tools"
+version = "1.0.0"
+description = "Tools for tasks embedded in an AWS Step Functions state machine. This is a helper library for py2sfn."
+authors = ["Jonathan Drake <jdrake@narrativescience.com>"]
 license = "BSD-3-Clause"
-description-file = "README.md"
-requires = [
-    "backoff>=1.8.0,<2",
-    "boto3",
-    "sfn-workflow-client",
-]
-classifiers = [
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: BSD License",
-    "Programming Language :: Python :: 3",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-]
-requires-python = ">=3.6,<4"
-keywords = "py2sfn,aws step functions,workflow"
+readme = "README.md"
+homepage = "https://github.com/NarrativeScience/py2sfn-task-tools"
+repository = "https://github.com/NarrativeScience/py2sfn-task-tools"
 
-[tool.flit.sdist]
-include = ["LICENSE.md"]
-exclude = ["tests/"]
+[tool.poetry.dependencies]
+backoff = "^2.2.1"
+boto3 = "^1.24.89"
+python = ">=3.7,<4"
+sfn-workflow-client = "^1.1.0"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.18.1"
+pytest = "^7.1.2"
+black = "^22.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+# These rules should conform to flake8-import-order's google import order style
+# and black's styling rules
+# If adding a new package to this list, please make sure to update the flake8 config as well
+atomic = true
+combine_as_imports = true
+default_section = "THIRDPARTY"
+force_sort_within_sections = true
+include_trailing_comma = true
+known_first_party = [
+    "sfn_workflow_client"
+]
+line_length = 88
+multi_line_output = 3
+no_lines_before = "LOCALFOLDER"
+order_by_type = false
+sections = [
+    "FUTURE",
+    "STDLIB",
+    "THIRDPARTY",
+    "FIRSTPARTY",
+    "LOCALFOLDER"
+]
+skip = "__init__.py"
+
+[tool.mypy]
+mypy_path = "py2sfn_task_tools"
+ignore_missing_imports = true
+allow_redefinition = true
+no_strict_optional = true
+follow_imports = "silent"
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+warn_unreachable = true
+
+[tool.pydocstyle]
+convention = "google"
+add-select = ["D413"]
+add-ignore = ["D202", "D205", "D415"]
+
+[tool.codespell]
+context = 1
+quiet-level = 3
+ignore-words-list = [
+    "mape"
+]

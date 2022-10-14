@@ -1,0 +1,11 @@
+description: Restores the build-test cache for pyenv, poetry, and pre-commit
+steps:
+  - restore_cache:
+      keys:
+        - v1-pyenv-{{ arch }}-py2sfn-task-tools-{{ checksum "poetry.lock" }}
+  - restore_cache:
+      keys:
+        - v1-poetry-{{ arch }}-py2sfn-task-tools-{{ checksum "poetry.lock" }}
+  - restore_cache:
+      keys:
+        - v1-precommit-{{ arch }}-py2sfn-task-tools-{{ checksum ".pre-commit-config.yaml" }}

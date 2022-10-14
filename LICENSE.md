@@ -1,4 +1,4 @@
-Copyright (c) 2020, Narrative Science
+Copyright (c) 2022, Salesforce
 
 All rights reserved.
 

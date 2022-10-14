@@ -13,8 +13,6 @@ exclude =
     *vendor*
     .venv
     .env
-    .pants.d
-    .pantscache
     .git
     __init__.py
     setup.py
