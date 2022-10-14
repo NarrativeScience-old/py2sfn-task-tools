@@ -1,0 +1,14 @@
+description: Stores the build-test cache for pyenv, poetry, and pre-commit
+steps:
+  - save_cache:
+      key: v1-pyenv-{{ arch }}-py2sfn-task-tools-{{ checksum "poetry.lock" }}
+      paths:
+        - "~/.pyenv"
+  - save_cache:
+      key: v1-poetry-{{ arch }}-py2sfn-task-tools-{{ checksum "poetry.lock" }}
+      paths:
+        - "~/.cache/pypoetry"
+  - save_cache:
+      key: v1-precommit-{{ arch }}-py2sfn-task-tools-{{ checksum ".pre-commit-config.yaml" }}
+      paths:
+        - "~/.cache/pre-commit"
