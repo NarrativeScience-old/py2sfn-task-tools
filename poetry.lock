@@ -65,14 +65,14 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 name = "boto3"
-version = "1.24.90"
+version = "1.24.91"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.7"
 
 [package.dependencies]
-botocore = ">=1.27.90,<1.28.0"
+botocore = ">=1.27.91,<1.28.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.6.0,<0.7.0"
 
@@ -81,7 +81,7 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "botocore"
-version = "1.27.90"
+version = "1.27.91"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -357,7 +357,7 @@ testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (
 
 [[package]]
 name = "sfn-workflow-client"
-version = "1.1.0"
+version = "1.1.1"
 description = "Enhanced, asyncio-compatible client for AWS Step Functions."
 category = "main"
 optional = false
@@ -367,7 +367,7 @@ python-versions = ">=3.7,<4"
 aenum = ">=3.1.11,<4.0.0"
 arrow = ">=1.2.3,<2.0.0"
 backoff = ">=2.2.1,<3.0.0"
-boto3 = ">=1.24.89,<2.0.0"
+boto3 = ">=1.24.59,<2.0.0"
 
 [[package]]
 name = "six"
@@ -455,7 +455,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4"
-content-hash = "e871966e53c7ade48631f37ecf6e5a9c88caa85c86dbcc2425a2a31cb9c4fffd"
+content-hash = "265de07adf957b28a0302a0e5861a0bdbb25bd4bcd7f3f8ec231b48091f83240"
 
 [metadata.files]
 aenum = [
@@ -499,12 +499,12 @@ black = [
     {file = "black-22.10.0.tar.gz", hash = "sha256:f513588da599943e0cde4e32cc9879e825d58720d6557062d1098c5ad80080e1"},
 ]
 boto3 = [
-    {file = "boto3-1.24.90-py3-none-any.whl", hash = "sha256:2a058a86989d88e27c79dd3e17218b3b167070d8738e20844d49363a3dd64281"},
-    {file = "boto3-1.24.90.tar.gz", hash = "sha256:83c2bc50f762ba87471fc73ec3eefd86626883b38533e98d7993259450c043db"},
+    {file = "boto3-1.24.91-py3-none-any.whl", hash = "sha256:b295640bc1be637f8f7c8c8fca70781048d6397196109e59f20541824fab4b67"},
+    {file = "boto3-1.24.91.tar.gz", hash = "sha256:3225366014949039e6687387242e73f237f0fee0a9b7c20461894f1ee40686b8"},
 ]
 botocore = [
-    {file = "botocore-1.27.90-py3-none-any.whl", hash = "sha256:2a934e713e83ae7f4dde1dd013be280538e3c4a3825c5f5a2727a1956d4cd82c"},
-    {file = "botocore-1.27.90.tar.gz", hash = "sha256:4ecc149d1dd36d32ba222de135c2e147731107ae444440b12714282dc00f88a4"},
+    {file = "botocore-1.27.91-py3-none-any.whl", hash = "sha256:1d6e97bd8653f732c7078b34aa2bb438e750898957e5a0a74b6c72918bc1d0f7"},
+    {file = "botocore-1.27.91.tar.gz", hash = "sha256:c8fac203a391cc2e4b682877bfce70e723e33c529b35b399a1d574605fbeb1af"},
 ]
 cfgv = [
     {file = "cfgv-3.3.1-py2.py3-none-any.whl", hash = "sha256:c6a0883f3917a037485059700b9e75da2464e6c27051014ad85ba6aaa5884426"},
@@ -637,8 +637,8 @@ setuptools = [
     {file = "setuptools-65.5.0.tar.gz", hash = "sha256:512e5536220e38146176efb833d4a62aa726b7bbff82cfbc8ba9eaa3996e0b17"},
 ]
 sfn-workflow-client = [
-    {file = "sfn_workflow_client-1.1.0-py3-none-any.whl", hash = "sha256:c818f6187a2683bba8b09d1848d65d3f78b434e2edc9cb5dc12f7bc09abff86d"},
-    {file = "sfn_workflow_client-1.1.0.tar.gz", hash = "sha256:d379daf6097d94171364e318e182bd04488f332d1e3ed436b844ae41ecb505bb"},
+    {file = "sfn_workflow_client-1.1.1-py3-none-any.whl", hash = "sha256:88032cd65b0cc04d2c7c2a60550ee77787e8b1cd88b353dcfe06601f80d38292"},
+    {file = "sfn_workflow_client-1.1.1.tar.gz", hash = "sha256:38b7a0f415dfc87001660bc71532b95200ff4f5a82a0a026f0fd4b354037e652"},
 ]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
